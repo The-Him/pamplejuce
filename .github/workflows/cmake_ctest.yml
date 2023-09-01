@@ -47,9 +47,6 @@ jobs:
       with:
         submodules: true # Get JUCE populated
 
-#  set(COMPANY_NAME "Pimplejuce inc")
-#  set(BUNDLE_ID "com.pimplejuce.pimp")
-
     - name: Extract CMake Variables
       shell: bash
       run: |
@@ -93,9 +90,9 @@ jobs:
       shell: bash
       run: |
         echo "ARTIFACTS_PATH=${{ env.BUILD_DIR }}/${{ env.PROJECT_NAME }}_artefacts/${{ env.BUILD_TYPE }}" >> $GITHUB_ENV
-        echo "VST3_PATH=${{ env.PROJECT_NAME }}_artefacts/${{ env.BUILD_TYPE }}/VST3/${{ env.MY_PRODUCT_NAME }}.vst3" >> $GITHUB_ENV
-        echo "AU_PATH=${{ env.PROJECT_NAME }}_artefacts/${{ env.BUILD_TYPE }}/AU/${{ env.MY_PRODUCT_NAME }}.component" >> $GITHUB_ENV
-        echo "AUV3_PATH=${{ env.PROJECT_NAME }}_artefacts/${{ env.BUILD_TYPE }}/AUv3/${{ env.MY_PRODUCT_NAME }}.appex" >> $GITHUB_ENV
+        echo "VST3_PATH=${{ env.PROJECT_NAME }}_artefacts/${{ env.BUILD_TYPE }}/VST3/${{ env.PRODUCT_NAME }}.vst3" >> $GITHUB_ENV
+        echo "AU_PATH=${{ env.PROJECT_NAME }}_artefacts/${{ env.BUILD_TYPE }}/AU/${{ env.PRODUCT_NAME }}.component" >> $GITHUB_ENV
+        echo "AUV3_PATH=${{ env.PROJECT_NAME }}_artefacts/${{ env.BUILD_TYPE }}/AUv3/${{ env.PRODUCT_NAME }}.appex" >> $GITHUB_ENV
         echo "PACKAGE_NAME=${{ env.PROJECT_NAME }}-${{ env.PROJECT_VERSION }}-${{ matrix.name }}" >> $GITHUB_ENV
 
 #    - name: Stop workflow
