@@ -42,6 +42,10 @@ jobs:
 #            ccache: sccache
 
     steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        submodules: true # Get JUCE populated
 
     - name: Extract CMake Variables
       run: |
@@ -103,10 +107,6 @@ jobs:
       if: ${{ matrix.name == 'macOS' }}
       run: brew install ninja osxutils
 
-    - name: Checkout code
-      uses: actions/checkout@v3
-      with:
-        submodules: true # Get JUCE populated
 
     - name: Setup Environment Variables
       shell: bash
