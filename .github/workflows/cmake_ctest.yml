@@ -57,24 +57,24 @@ jobs:
         if [ -z "$project_name" ]; then
           echo "PROJECT_NAME not found"
         else
-          echo "PROJECT_NAME=${project_name}"
+          echo "PROJECT_NAME=${project_name}" >> $GITHUB_ENV
         fi
 
         if [ -z "$project_version" ]; then
           echo "PROJECT_VERSION not found"
         else
-          echo "PROJECT_VERSION=${project_version}"
+          echo "PROJECT_VERSION=${project_version}" >> $GITHUB_ENV
         fi
 
         if [ -z "$product_name" ]; then
           echo "PRODUCT_NAME not found"
         else
-          echo "PRODUCT_NAME=${product_name}"
+          echo "PRODUCT_NAME=${product_name}" >> $GITHUB_ENV
         fi
     
 
     - name: Stop workflow
-      run: exit 0
+      run: echo "::error::Exiting workflow"
 
     # This is just easier than debugging different compilers on different platforms
     - name: Set up Clang
