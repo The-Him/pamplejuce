@@ -99,11 +99,11 @@ jobs:
         echo "AUV3_PATH=${{ env.PROJECT_NAME }}_artefacts/${{ env.BUILD_TYPE }}/AUv3/${{ env.MY_PRODUCT_NAME }}.appex" >> $GITHUB_ENV
 #        echo "PRODUCT_NAME=${{ env.PROJECT_NAME }}-$VERSION-${{ matrix.name }}" >> $GITHUB_ENV
 
-    - name: Stop workflow
-      shell: bash
-      run: |
-        echo "::error::Exiting workflow"
-        exit 1
+#    - name: Stop workflow
+#      shell: bash
+#      run: |
+#        echo "::error::Exiting workflow"
+#        exit 1
 
     # This is just easier than debugging different compilers on different platforms
     - name: Set up Clang
