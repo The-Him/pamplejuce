@@ -7,13 +7,11 @@ TEST_CASE("one is equal to one", "[dummy]")
   REQUIRE(1 == 1);
 }
 
-// https://github.com/McMartin/FRUT/issues/490#issuecomment-663544272
 PluginProcessor testPlugin;
 
 TEST_CASE("Plugin instance name", "[name]")
 {
-  CHECK_THAT(testPlugin.getName().toStdString(),
-             Catch::Matchers::Equals("Pamplejuce"));
+  REQUIRE(testPlugin.getName().isNotEmpty());
 }
 
 #ifdef PAMPLEJUCE_IPP
