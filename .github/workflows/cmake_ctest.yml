@@ -59,7 +59,7 @@ jobs:
           echo "PROJECT_NAME=$project_name" >> $GITHUB_ENV
         fi
         
-        if [ -z "project_version" ]; then
+        if [ -z "$project_version" ]; then
           echo "PROJECT_VERSION not found"
         else
           echo "PROJECT_VERSION=project_version" >> $GITHUB_ENV
