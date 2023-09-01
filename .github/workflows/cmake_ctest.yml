@@ -56,19 +56,19 @@ jobs:
         if [ -z "$project_name" ]; then
           echo "PROJECT_NAME not found"
         else
-          echo "PROJECT_NAME=${project_name}"# >> $GITHUB_ENV
+          echo "PROJECT_NAME=${project_name}"
         fi
 
         if [ -z "$project_version" ]; then
           echo "PROJECT_VERSION not found"
         else
-          echo "PROJECT_VERSION=${project_version}"# >> $GITHUB_ENV
+          echo "PROJECT_VERSION=${project_version}"
         fi
 
         if [ -z "$product_name" ]; then
           echo "PRODUCT_NAME not found"
         else
-          echo "PRODUCT_NAME=${product_name}"# >> $GITHUB_ENV
+          echo "PRODUCT_NAME=${product_name}"
         fi
     
 
