@@ -49,13 +49,27 @@ jobs:
 
     - name: Extract CMake Variables
       run: |
-        project_name=$(grep -oP 'set\(PROJECT_NAME "\K[^"]+' CMakeLists.txt)
-        product_name=$(grep -oP 'set\(PRODUCT_NAME "\K[^"]+' CMakeLists.txt)
-        product_version=$(grep -oP 'set\(PRODUCT_VERSION "\K[^"]+' CMakeLists.txt)
+        project_name=$(grep -oP 'set\(PROJECT_NAME "\K[^"]+' CMakeLists.txt || echo "")
+        project_version=$(grep -oP 'set\(PROJECT_VERSION "\K[^"]+' CMakeLists.txt || echo "")
+        product_name=$(grep -oP 'set\(PRODUCT_NAME "\K[^"]+' CMakeLists.txt || echo "")
         
-        echo "PROJECT_NAME=$project_name" >> $GITHUB_ENV        
-        echo "PRODUCT_NAME=$product_name" >> $GITHUB_ENV
-        echo "PRODUCT_VERSION=$product_version" >> $GITHUB_ENV
+        if [ -z "$project_name" ]; then
+          echo "PROJECT_NAME not found"
+        else
+          echo "PROJECT_NAME=$project_name" >> $GITHUB_ENV
+        fi
+        
+        if [ -z "project_version" ]; then
+          echo "PROJECT_VERSION not found"
+        else
+          echo "PROJECT_VERSION=project_version" >> $GITHUB_ENV
+        fi
+        
+        if [ -z "$product_name" ]; then
+          echo "PRODUCT_NAME not found"
+        else
+          echo "PRODUCT_NAME=$product_name" >> $GITHUB_ENV
+        fi
 
     - name: Stop workflow
       run: exit 0
