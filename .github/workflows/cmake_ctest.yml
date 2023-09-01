@@ -48,10 +48,11 @@ jobs:
         submodules: true # Get JUCE populated
 
     - name: Extract CMake Variables
+      shell: bash
       run: |
-        project_name=$(grep -oP 'set\(PROJECT_NAME "\K[^"]+' CMakeLists.txt || echo "")
-        project_version=$(grep -oP 'set\(PROJECT_VERSION "\K[^"]+' CMakeLists.txt || echo "")
-        product_name=$(grep -oP 'set\(PRODUCT_NAME "\K[^"]+' CMakeLists.txt || echo "")
+        project_name=$(grep -oP '^set\(PROJECT_NAME "\K[^"]+' CMakeLists.txt || echo "")
+        project_version=$(grep -oP '^set\(PROJECT_VERSION "\K[^"]+' CMakeLists.txt || echo "")
+        product_name=$(grep -oP '^set\(PRODUCT_NAME "\K[^"]+' CMakeLists.txt || echo "")
 
         if [ -z "$project_name" ]; then
           echo "PROJECT_NAME not found"
