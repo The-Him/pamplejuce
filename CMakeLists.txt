@@ -12,7 +12,9 @@ include (PamplejuceVersion)
 # set(PROJECT_NAME "MyPlugin_v${MAJOR_VERSION}")
 # Doing so enables major versions to show up in IDEs and DAWs as separate plugins
 # allowing you to change parameters and behavior without breaking user projects
-set(PROJECT_NAME "Pamplejuce")
+set(PROJECT_NAME "Pimplejuce")
+set(PRODUCT_NAME "Pimpel Product")
+set(PROJECT_VERSION "1.33.7")
 
 # Set the plugin formats you'll be building here.
 # Valid choices here: AAX Unity VST VST3 AU AUv3 Standalone
@@ -42,8 +44,8 @@ juce_add_plugin("${PROJECT_NAME}"
     ICON_BIG "${CMAKE_CURRENT_SOURCE_DIR}/packaging/icon.png"
 
     # Change me!
-    COMPANY_NAME Pamplejuce
-    BUNDLE_ID com.pamplejuce.pamplejuce
+    COMPANY_NAME "Pimplejuce inc"
+    BUNDLE_ID com.pimplejuce.pimp
     
     # On MacOS, plugin is copied to ~/Users/you/Library/Audio/Plug-Ins/
     COPY_PLUGIN_AFTER_BUILD TRUE
@@ -51,7 +53,7 @@ juce_add_plugin("${PROJECT_NAME}"
     # Change me!
     # A four-character plugin id
     # First character MUST be uppercase for AU formats
-    PLUGIN_MANUFACTURER_CODE Pamp
+    PLUGIN_MANUFACTURER_CODE Pimp
 
     # Change me!
     # A unique four-character plugin id
@@ -63,7 +65,7 @@ juce_add_plugin("${PROJECT_NAME}"
     # This is how it's listed in the DAW
     # This can be different from PROJECT_NAME and can have spaces!
     # You might want to use v${MAJOR_VERSION} here once you go to v2...
-    PRODUCT_NAME "${PROJECT_NAME}")
+    PRODUCT_NAME "Pimpel Product")
 
 # This lets us use our code in both the JUCE targets and our Test target
 # Without running into ODR violations
